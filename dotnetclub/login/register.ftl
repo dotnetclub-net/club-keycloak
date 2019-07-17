@@ -51,6 +51,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" />
+                    <input type="hidden" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="N/A" />
                 </div>
             </div>
             

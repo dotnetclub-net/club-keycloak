@@ -9,6 +9,15 @@
     color: #333333;
 }
 
+.required {
+    color: #CB2915;
+}
+
+.control-label + .required {
+    position: relative;
+    left: 5px;
+}
+
 #kc-locale ul {
     display: none;
     position: absolute;
