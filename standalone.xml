@@ -553,7 +553,6 @@
                 <http-listener name="default" socket-binding="http" redirect-socket="https" proxy-address-forwarding="${env.PROXY_ADDRESS_FORWARDING:false}" enable-http2="true"/>
                 <https-listener name="https" socket-binding="https" proxy-address-forwarding="${env.PROXY_ADDRESS_FORWARDING:false}" security-realm="ApplicationRealm" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
-                    <location name="/" handler="welcome-content"/>
                     <http-invoker security-realm="ApplicationRealm"/>
                 </host>
             </server>
@@ -561,9 +560,6 @@
                 <jsp-config/>
                 <websockets/>
             </servlet-container>
-            <handlers>
-                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
-            </handlers>
         </subsystem>
     </profile>
     <interfaces>
