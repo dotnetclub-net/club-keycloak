@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="col-sm-10 col-md-10">
-                    <input type="text" class="form-control" id="username" name="username" <#if !realm.editUsernameAllowed>disabled="disabled" title="无法更改用户名" </#if> value="${(account.username!'')}"/>
+                    <input type="text" class="form-control" id="username" name="username" <#if !realm.editUsernameAllowed>disabled="disabled" title="${msg("canNotChangeUsername")}" </#if> value="${(account.username!'')}"/>
                 </div>
             </div>
         </#if>
@@ -32,7 +32,7 @@
             </div>
 
             <div class="col-sm-10 col-md-10">
-                <input type="text" class="form-control" id="email" disabled name="email" autofocus value="${(account.email!'')}" title="请从 dotnet club 网站更新您的个人信息"/>
+                <input type="text" class="form-control" id="email" disabled name="email" autofocus value="${(account.email!'')}" title="${msg("pleaseUpdateAtDotnetClub")}"/>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-sm-10 col-md-10">
-                <input type="text" class="form-control" id="firstName" disabled name="firstName" value="${(account.firstName!'')}" title="请从 dotnet club 网站更新您的个人信息"/>
+                <input type="text" class="form-control" id="firstName" disabled name="firstName" value="${(account.firstName!'')}" title="${msg("pleaseUpdateAtDotnetClub")}"/>
             </div>
         </div>
 

@@ -130,7 +130,7 @@ div.kc-logo-text span {
 
 #kc-info {
     padding-bottom: 200px;
-    margin-bottom: -200px;
+    margin-bottom: -180px;
 }
 
 #kc-info-wrapper {
@@ -150,9 +150,11 @@ div.kc-logo-text span {
     margin-bottom: 20px;
 }
 
-#kc-registration {
+#kc-navigate-registration, #kc-navigate-login {
+    text-align:right;
     margin-bottom: 15px;
 }
+
 
 /* TOTP */
 
@@ -447,4 +449,13 @@ a.zocial  {
 
 .login-pf-page .btn-primary {
     margin-top: 0;
+}
+
+
+#kc-backtoclub{
+    position: absolute;
+}
+
+#kc-backtoclub a{
+    margin-left: 0 !important;
 }
