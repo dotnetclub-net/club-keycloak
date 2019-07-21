@@ -25,6 +25,7 @@ header .navbar {
     width: 123px;
     margin: 3px 10px 5px;
     text-indent: -99999px;
+    background-size: auto 25px;
 }
 
 .navbar-pf .navbar-utility {
@@ -34,7 +35,7 @@ header .navbar {
 }
 
 .navbar-pf .navbar-utility > li > a {
-    color: #fff !important;
+    color: #333 !important;
     padding-bottom: 12px;
     padding-top: 11px;
     border-left: medium none;
@@ -92,12 +93,13 @@ header .navbar {
     border-right: 2px solid #aaa;
 }
 .bs-sidebar ul li.active a {
-    background-color: #c7e5f0;
-    border-color: #56bae0;
+    background-color: #ebddf1;
+    border-color: #dd7bdb;
     font-weight: bold;
     background-image: url(../img/icon-sidebar-active.png);
     background-repeat: no-repeat;
     background-position: right center;
+    background-size: 50px auto;
 }
 
 .bs-sidebar ul li.active a:hover {
@@ -225,7 +227,7 @@ hr + .form-horizontal {
     padding: 11px 10px 12px;
     line-height: 12px;
     font-size: 12px;
-    color: #fff !important;
+    color: #333 !important;
     text-decoration: none;
 }
 .kc-dropdown > a::after{
@@ -246,8 +248,8 @@ hr + .form-horizontal {
 }
 .kc-dropdown ul li a:hover{
     color: #4d5258;
-    background-color: #d4edfa;
-    border-color: #b3d3e7;
+    background-color: #ebddf1;
+    border-color: #dd7bdb;
 }
 .kc-dropdown ul{
     position: absolute;

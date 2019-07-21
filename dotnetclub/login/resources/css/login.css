@@ -45,7 +45,7 @@
 
 #kc-locale ul li a:hover {
     color: #4d5258;
-    background-color: #d4edfa;
+    background-color: #ebddf1;
 }
 
 #kc-locale-dropdown a {
@@ -78,7 +78,7 @@ a#kc-current-locale-link::after {
 }
 
 .login-pf a:hover {
-    color: #0099d3;
+    color: #834790;
 }
 
 #kc-logo {

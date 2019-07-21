@@ -1089,12 +1089,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #0099d3;
+  color: #aa6cb7;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #00618a;
+  color:#834790;
   text-decoration: underline;
 }
 a:focus {
@@ -2547,10 +2547,10 @@ output {
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .form-control:focus {
-  border-color: #66afe9;
+  border-color: #e2aef1;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(235, 182, 243, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(235, 182, 243, 0.6);
 }
 .form-control::-moz-placeholder {
   color: #999999;
@@ -9255,13 +9255,14 @@ fieldset[disabled] .btn-default.active {
   box-shadow: none;
 }
 .btn-primary {
-  background-color: #0085cf;
-  background-image: -webkit-linear-gradient(top, #00a8e1 0%, #0085cf 100%);
-  background-image: -o-linear-gradient(top, #00a8e1 0%, #0085cf 100%);
-  background-image: linear-gradient(to bottom, #00a8e1 0%, #0085cf 100%);
+  background-color: #c271da;
+  background-image: -webkit-linear-gradient(top, #db9ff5 0%, #b14fce 100%);
+  background-image: -o-linear-gradient(top, #db9ff5 0%, #b14fce 100%);
+  background-image: linear-gradient(to bottom, #db9ff5 0%, #b14fce 100%);
+  
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00a8e1', endColorstr='#ff0085cf', GradientType=0);
-  border-color: #006e9c;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdb9ff5', endColorstr='#ffb14fce', GradientType=0);
+  border-color: #b24fb5;
   color: #ffffff;
 }
 .btn-primary:hover,
@@ -9269,9 +9270,9 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  background-color: #0085cf;
+  background-color: #b14fce;
   background-image: none;
-  border-color: #006e9c;
+  border-color: #b24fb5;
   color: #ffffff;
 }
 .btn-primary:active,
@@ -9731,7 +9732,7 @@ fieldset[disabled] .form-control {
   color: #969696;
 }
 .form-control:hover {
-  border-color: #7bb2dd;
+  border-color: #dd7bdb;
 }
 .has-error .form-control:hover {
   border-color: #843534;
@@ -10199,10 +10200,10 @@ h6 .label {
   margin-left: 5px;
 }
 .navbar-pf {
-  background: #030303;
+  background: #eef9fd;
   border: 0;
   border-radius: 0;
-  border-top: 3px solid #199dde;
+  border-top: 3px solid #aa6cb7;
   margin-bottom: 0;
   min-height: 0;
 }
@@ -10505,11 +10506,11 @@ h6 .label {
   }
   .navbar-pf .navbar-primary {
     font-size: 14px;
-    background-image: -webkit-linear-gradient(top, #1d1d1d 0%, #030303 100%);
-    background-image: -o-linear-gradient(top, #1d1d1d 0%, #030303 100%);
-    background-image: linear-gradient(to bottom, #1d1d1d 0%, #030303 100%);
+    background-image: -webkit-linear-gradient(top, #c189ce 0%, #834790 100%);
+    background-image: -o-linear-gradient(top, #c189ce 0%, #834790 100%);
+    background-image: linear-gradient(to bottom, #c189ce 0%, #834790 100%);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1d1d1d', endColorstr='#ff030303', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc189ce', endColorstr='#ff834790', GradientType=0);
   }
   .navbar-pf .navbar-primary.persistent-secondary .context .dropdown-menu {
     top: auto;
@@ -10722,7 +10723,7 @@ h6 .label {
     padding: 7px 10px;
   }
   .navbar-pf .navbar-utility > li > a:hover {
-    background: #232323;
+    background: rgba(0,0,0,0.2);
     border-left-color: #373737;
   }
   .navbar-pf .navbar-utility > li.open > a {
