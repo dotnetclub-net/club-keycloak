@@ -130,17 +130,28 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:jboss/datasources/KeycloakDS" pool-name="KeycloakDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
-                    <connection-url>jdbc:h2:${jboss.server.data.dir}/keycloak;AUTO_SERVER=TRUE</connection-url>
-                    <driver>h2</driver>
+                <datasource jndi-name="java:jboss/datasources/KeycloakDS" pool-name="KeycloakDS" enabled="true" use-java-context="true" use-ccm="true">
+                    <connection-url>jdbc:postgresql://${env.DB_ADDR:postgres}:${env.DB_PORT:5432}/${env.DB_DATABASE:keycloak}${env.JDBC_PARAMS:}</connection-url>
+                    <driver>postgresql</driver>
+                    <pool>
+                        <flush-strategy>IdleConnections</flush-strategy>
+                    </pool>
                     <security>
-                        <user-name>sa</user-name>
-                        <password>sa</password>
+                        <user-name>${env.DB_USER:keycloak}</user-name>
+                        <password>${env.DB_PASSWORD:password}</password>
                     </security>
+                    <validation>
+                        <check-valid-connection-sql>SELECT 1</check-valid-connection-sql>
+                        <background-validation>true</background-validation>
+                        <background-validation-millis>60000</background-validation-millis>
+                    </validation>
                 </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+                    </driver>
+                    <driver name="postgresql" module="org.postgresql.jdbc">
+                        <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
                     </driver>
                 </drivers>
             </datasources>
@@ -411,8 +422,8 @@
             <scheduled-task-interval>900</scheduled-task-interval>
             <theme>
                 <staticMaxAge>2592000</staticMaxAge>
-                <cacheThemes>false</cacheThemes>
-                <cacheTemplates>false</cacheTemplates>
+                <cacheThemes>true</cacheThemes>
+                <cacheTemplates>true</cacheTemplates>
                 <welcomeTheme>${env.KEYCLOAK_WELCOME_THEME:keycloak}</welcomeTheme>
                 <default>${env.KEYCLOAK_DEFAULT_THEME:keycloak}</default>
                 <dir>${jboss.home.dir}/themes</dir>
@@ -443,6 +454,7 @@
                         <property name="initializeEmpty" value="true"/>
                         <property name="migrationStrategy" value="update"/>
                         <property name="migrationExport" value="${jboss.home.dir}/keycloak-database-update.sql"/>
+                        <property name="schema" value="${env.DB_SCHEMA:public}"/>
                     </properties>
                 </provider>
             </spi>
@@ -553,6 +565,7 @@
                 <http-listener name="default" socket-binding="http" redirect-socket="https" proxy-address-forwarding="${env.PROXY_ADDRESS_FORWARDING:false}" enable-http2="true"/>
                 <https-listener name="https" socket-binding="https" proxy-address-forwarding="${env.PROXY_ADDRESS_FORWARDING:false}" security-realm="ApplicationRealm" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
+                    <location name="/" handler="welcome-content"/>
                     <http-invoker security-realm="ApplicationRealm"/>
                 </host>
             </server>
@@ -560,19 +573,22 @@
                 <jsp-config/>
                 <websockets/>
             </servlet-container>
+            <handlers>
+                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
+            </handlers>
         </subsystem>
     </profile>
     <interfaces>
-        <interface name="management">
-            <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
-        </interface>
         <interface name="public">
             <inet-address value="${jboss.bind.address:127.0.0.1}"/>
         </interface>
+        <interface name="any">
+            <any-address/>
+        </interface>
     </interfaces>
-    <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
-        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
-        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
+    <socket-binding-group name="standard-sockets" default-interface="any">
+        <socket-binding name="management-http" interface="any" port="${jboss.management.http.port:9990}"/>
+        <socket-binding name="management-https" interface="any" port="${jboss.management.https.port:9993}"/>
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
         <socket-binding name="https" port="${jboss.https.port:8443}"/>
